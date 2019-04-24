@@ -33,13 +33,11 @@ class Board:
 
         #putting on the chess pieces
     def printBoard(self):
-        count = 0
         for i in range(64):
             print('|', end = (self.game_Tiles[i].piece_on_tile.layout()))
-            count = count +1
-            if count == 8:# writing some code!
+            if ((i + 1) % 8 == 0):# writing some code!
                 print("|", end = "\n")
-                count = 0
+
 class Tiles:
     piece_on_tile = None
     tile_coordinate = None
@@ -55,7 +53,15 @@ class Piece:
     fifth_column = [4,12,20,28,36,44,52,60]
     sixth_column = [5,13,21,29,37,45,53,61]
     seventh_column = [6,14,22,30,38,46,54,62]
-    eigth_column = [7,15,23,31,39,47,55,63]
+    eighth_column = [7,15,23,31,39,47,55,63]
+    first_row = [0,1,2,3,4,5,6,7,]
+    second_row = [8,9,10,11,12,13,14,15]
+    third_row = [16,17,18,19,20,21,22,23]
+    fourth_row = [24,25,26,27,28,29,30,31]
+    fifth_row = [32,33,34,35,36,37,38,39]
+    sixth_row = [40,41,42,43,44,45,46,47]
+    seventh_row = [48,49,50,51,52,53,54,55]
+    eighth_row = [56,57,58,59,60,61,62,63]
     def __init_(self):
         pass
 
@@ -85,35 +91,35 @@ class Rook(Piece):
         for index in possible_moves:
             destination = self.pos + (index)
             if 0<=destination <=63:
-                if index == 1 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eigth_column \
-                 or index == 1 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column \
-                  or index == 1 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column:
+                if index == 1 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eighth_column \
+                 or index == 1 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column \
+                  or index == 1 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column:
                         legal_moves.append(destination)
 
-                elif index == 2 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column \
-                 or index == 2 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column \
-                  or index == 2 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column:
+                elif index == 2 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column \
+                 or index == 2 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column \
+                  or index == 2 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column:
                         legal_moves.append(destination)
 
-                elif index == 3 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.sixth_column \
-                 or index == 3 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.sixth_column \
-                  or index == 3 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.sixth_column:
+                elif index == 3 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.sixth_column \
+                 or index == 3 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.sixth_column \
+                  or index == 3 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.sixth_column:
                         legal_moves.append(destination)
 
-                elif index == 4 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column \
-                 or index == 4 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column \
-                  or index == 4 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column:
+                elif index == 4 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column \
+                 or index == 4 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column \
+                  or index == 4 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column:
                         legal_moves.append(destination)
 
 
-                elif index == 5 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column \
-                 or index == 5 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column \
-                  or index == 5 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column:
+                elif index == 5 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column \
+                 or index == 5 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column \
+                  or index == 5 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column:
                         legal_moves.append(destination)
 
-                elif index == 6 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column and  self.pos not in Piece.third_column \
-                 or index == 6 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column and  self.pos not in Piece.third_column \
-                  or index == 6 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eigth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column and  self.pos not in Piece.third_column:
+                elif index == 6 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column and  self.pos not in Piece.third_column \
+                 or index == 6 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column and  self.pos not in Piece.third_column \
+                  or index == 6 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and  self.pos not in Piece.sixth_column and  self.pos not in Piece.fifth_column and  self.pos not in Piece.fourth_column and  self.pos not in Piece.third_column:
                         legal_moves.append(destination)
 
                 elif index == 7 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos in Piece.first_column \
@@ -152,9 +158,9 @@ class Rook(Piece):
                   or index == -6 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos not in Piece.first_column and self.pos not in Piece.second_column and self.pos not in Piece.third_column and self.pos not in Piece.fourth_column and self.pos not in Piece.fifth_column and self.pos not in Piece.sixth_column:
                         legal_moves.append(destination)
 
-                elif index == -7 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos in Piece.eigth_column \
-                 or index == -7 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos in Piece.eigth_column \
-                  or index == -7 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos in Piece.eigth_column:
+                elif index == -7 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos in Piece.eighth_column \
+                 or index == -7 and self.color == "B" and islower(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos in Piece.eighth_column \
+                  or index == -7 and self.color == "W" and isupper(board.game_Tiles[destination].piece_on_tile.layout()) and self.pos in Piece.eighth_column:
                         legal_moves.append(destination)
                      # if its an opposite piece color or the tile is blank, its a legal move
                 elif index in [8,16,32,40,48,56,-8,-16,-24,-32,-40,-48,-56] and board.game_Tiles[destination].piece_on_tile.layout() == '-' \
@@ -177,7 +183,54 @@ class Knight(Piece):
 
     def calculateLegalMoves(self, board):
         legal_moves = []
-        possible_moves = [1,2,3,4,5,6,7,8,16,32,40,48,56]
+        possible_moves = [17,-17,15,-15,10,-10,6,-6]
+        for index in possible_moves:
+            destination = self.pos + index
+            if 0 <= destination <=63:
+                if(index == 17 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_row and self.pos not in Piece.eighth_row  \
+                or index == 17 and self.color == "B" and board.game_Tiles[destination].piece_on_tile.layout().islower() and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_row and self.pos not in Piece.eighth_row \
+                or index == 17 and self.color == "W" and board.game_Tiles[destination].piece_on_tile.layout().isupper() and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_row and self.pos not in Piece.eighth_row):
+                    legal_moves.append(destination)
+                elif(index == 15 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.first_column and self.pos not in Piece.seventh_row and self.pos not in Piece.eighth_row \
+                or index == 15 and self.color == "B" and board.game_Tiles[destination].piece_on_tile.layout().islower() and self.pos not in Piece.first_column and self.pos not in Piece.seventh_row and self.pos not in Piece.eighth_row
+                or index == 15 and self.color == "W" and board.game_Tiles[destination].piece_on_tile.layout().isupper() and self.pos not in Piece.first_column and self.pos not in Piece.seventh_row and self.pos not in Piece.eighth_row):
+                    legal_moves.append(destination)
+                elif(index == -17 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.first_column and self.pos not in Piece.first_row and self.pos not in Piece.second_row \
+                or index == -17 and self.color == "B" and board.game_Tiles[destination].piece_on_tile.layout().islower() and self.pos not in Piece.first_column and self.pos not in Piece.first_row and self.pos not in Piece.second_row \
+                or index == -17 and self.color == "W" and board.game_Tiles[destination].piece_on_tile.layout().isupper() and self.pos not in Piece.first_column and self.pos not in Piece.first_row and self.pos not in Piece.second_row):
+                    legal_moves.append(destination)
+                elif(index == -15 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eighth_column and self.pos not in Piece.first_row and self.pos not in Piece.second_row \
+                or index == -15 and self.color == "B" and board.game_Tiles[destination].piece_on_tile.layout().islower() and self.pos not in Piece.eighth_column and self.pos not in Piece.first_row and self.pos not in Piece.second_row \
+                or index == -15 and self.color == "W" and board.game_Tiles[destination].piece_on_tile.layout().isupper() and self.pos not in Piece.eighth_column and self.pos not in Piece.first_row and self.pos not in Piece.second_row):
+                    legal_moves.append(destination)
+                elif(index == 10 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.eighth_row \
+                or index == 10 and self.color == "B" and board.game_Tiles[destination].piece_on_tile.layout().islower() and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.eighth_row \
+                or index == 10 and self.color == "W" and board.game_Tiles[destination].piece_on_tile.layout().isupper() and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.eighth_row):
+                    legal_moves.append(destination)
+                elif(index == -6 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.first_row \
+                or index == -6 and self.color == "B" and board.game_Tiles[destination].piece_on_tile.layout().islower() and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.first_row\
+                or index == -6 and self.color == "W" and board.game_Tiles[destination].piece_on_tile.layout().isupper() and self.pos not in Piece.eighth_column and self.pos not in Piece.seventh_column and self.pos not in Piece.first_row):
+                    legal_moves.append(destination)
+                elif(index == 6 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.first_column and self.pos not in Piece.second_column and self.pos not in Piece.eighth_row \
+                or index == 6 and self.color == "B" and board.game_Tiles[destination].piece_on_tile.layout().islower() and self.pos not in Piece.first_column and self.pos not in Piece.second_column and self.pos not in Piece.eighth_row\
+                or index == 6 and self.color == "W" and board.game_Tiles[destination].piece_on_tile.layout().isupper() and self.pos not in Piece.first_column and self.pos not in Piece.second_column and self.pos not in Piece.eighth_row):
+                    legal_moves.append(destination)
+                elif(index == -10 and board.game_Tiles[destination].piece_on_tile.layout() == '-' and self.pos not in Piece.first_column and self.pos not in Piece.second_column and self.pos not in Piece.first_row \
+                or index == -10 and self.color == "B" and board.game_Tiles[destination].piece_on_tile.layout().islower() and self.pos not in Piece.first_column and self.pos not in Piece.second_column and self.pos not in Piece.first_row\
+                or index == -10 and self.color == "W" and board.game_Tiles[destination].piece_on_tile.layout().isupper() and self.pos not in Piece.first_column and self.pos not in Piece.second_column and self.pos not in Piece.first_row):
+                    legal_moves.append(destination)
+
+        return legal_moves
+    def move(self, destination, board):
+        if self.color == "W":
+            board.game_Tiles[self.pos] = Tiles(self.pos,Null_Piece)
+            board.game_Tiles[destination] = Tiles(destination, Knight(destination,'W'))
+        #    board.game_Tiles.update({Null_Piece.layout():self.pos, Pawn.layout():destination})
+        else:
+            board.game_Tiles[self.pos] = Tiles(self.pos,Null_Piece)
+            board.game_Tiles[destination] = Tiles(destination, Knight(destination,'B'))
+
+
 # Two places up and one to the right or left -> 25, 23
 # Two places left and
 #
@@ -240,11 +293,9 @@ class Pawn(Piece):
             return 'p'
 
     def firstMove(self):
-        second_row = [8,9,10,11,12,13,14,15]
-        seventh_row = [48,49,50,51,52,53,54,55]
-        if(self.color == "B" and self.pos in second_row):
+        if(self.color == "B" and self.pos in Piece.second_row):
             return True
-        elif(self.color == "W" and self.pos in seventh_row):
+        elif(self.color == "W" and self.pos in Piece.seventh_row):
             return True
         else:
             return False
@@ -273,9 +324,9 @@ class Pawn(Piece):
                     if self.color == "W" and board.game_Tiles[destination].piece_on_tile.layout().isupper() and self.pos not in Piece.first_column:
                         legal_moves.append(destination)
                 elif(index == 9 and not board.game_Tiles[destination].piece_on_tile.layout()== "-"):
-                    if self.color == "B" and board.game_Tiles[destination].piece_on_tile.layout().islower() and self.pos not in Piece.eigth_column:
+                    if self.color == "B" and board.game_Tiles[destination].piece_on_tile.layout().islower() and self.pos not in Piece.eighth_column:
                         legal_moves.append(destination)
-                    if self.color == "W" and board.game_Tiles[destination].piece_on_tile.layout().isupper() and self.pos not in Piece.eigth_column:
+                    if self.color == "W" and board.game_Tiles[destination].piece_on_tile.layout().isupper() and self.pos not in Piece.eighth_column:
                         legal_moves.append(destination)
                 else:
                     pass #skip enpassant for now
@@ -329,10 +380,21 @@ class engine(): #create a constructor
                 destination_move = int(input("""Please select the destination tile that you want the piece to move to."""))
                 print(chess_board.game_Tiles[destination_move].piece_on_tile.layout())
 
-            if(destination_move in selected_piece.calculateLegalMoves(chess_board)):
-                selected_piece.move(destination_move, chess_board)
-            else:
-                print("""That is not a legal move. Please select a legal move >:(""")
+                if(destination_move in selected_piece.calculateLegalMoves(chess_board)):
+                    selected_piece.move(destination_move, chess_board)
+                else:
+                    print("""That is not a legal move. Please select a legal move >:(""")
+            if chess_board.game_Tiles[piece_tile].piece_on_tile.layout() == 'N' or chess_board.game_Tiles[piece_tile].piece_on_tile.layout() == 'n':
+                print("you've selected a knight")
+                selected_piece = chess_board.game_Tiles[piece_tile].piece_on_tile#does this get the piece that we need?
+                print(selected_piece.calculateLegalMoves(chess_board))
+                destination_move = int(input("""Please select the destination tile that you want the piece to move to."""))
+                print(chess_board.game_Tiles[destination_move].piece_on_tile.layout())
+
+                if(destination_move in selected_piece.calculateLegalMoves(chess_board)):
+                    selected_piece.move(destination_move, chess_board)
+                else:
+                    print("""That is not a legal move. Please select a legal move >:(""")
 
 #piece_move -> going to select the piece on that tile
 #destination move, is that move legal, based on the piece on that tile
