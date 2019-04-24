@@ -37,7 +37,7 @@ class Board:
         for i in range(64):
             print('|', end = (self.game_Tiles[i].piece_on_tile.layout()))
             count = count +1
-            if count == 8:
+            if count == 8:# writing some code!
                 print("|", end = "\n")
                 count = 0
 class Tiles:
